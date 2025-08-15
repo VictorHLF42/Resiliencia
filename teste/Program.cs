@@ -1,0 +1,13 @@
+﻿/*
+ USEI DE RASCUNHO, AQUI TEVE MUITO CÓDIGO QUE JAMAIS VERÁ A LUZ DO DIA
+  
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ */
