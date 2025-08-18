@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic; // Para poder usar a classe List
+using System.Collections.Generic; 
 
 Console.WriteLine("--- Desafio 3: Classe Loja ---\n");
 Console.WriteLine();
 
-// 1. Instanciar a loja
+
 var minhaLoja = new Loja("Minha Loja de Eletrônicos");
 
-// 2. Cadastrar produtos
+
 minhaLoja.AdicionarProduto(new Produto(1, "Notebook", 3500.00m, 5));
 minhaLoja.AdicionarProduto(new Produto(2, "Mouse", 45.00m, 30));
 minhaLoja.AdicionarProduto(new Produto(3, "Monitor", 850.00m, 12));
 
-// Listar produtos
+
 minhaLoja.ListarProdutos();
 
-// 3. Realizar vendas
-Console.WriteLine("\n--- Realizando Vendas ---");
-minhaLoja.VenderProduto(2, 5); // Vende 5 mouses
-minhaLoja.VenderProduto(3, 15); // Tenta vender 15 monitores (estoque insuficiente)
-minhaLoja.VenderProduto(4, 1); // Tenta vender um produto que não existe
 
-// Listar produtos após as vendas
+Console.WriteLine("\n--- Realizando Vendas ---");
+minhaLoja.VenderProduto(2, 5); 
+minhaLoja.VenderProduto(3, 15); 
+minhaLoja.VenderProduto(4, 1);
+
+
 minhaLoja.ListarProdutos();
 
 
@@ -29,28 +29,28 @@ minhaLoja.ListarProdutos();
 Console.ReadKey();
 
 
-// CLASSE LOJA
+
 public class Loja
 {
-    // Propriedades da classe
+    
     public string? Nome;
     public List<Produto> ListaDeProdutos;
 
-    // Construtor
+  
     public Loja(string nome)
     {
         Nome = nome;
-        ListaDeProdutos = new List<Produto>(); // Inicializa a lista
+        ListaDeProdutos = new List<Produto>();
     }
 
-    // Método para adicionar um produto à lista
+   
     public void AdicionarProduto(Produto produto)
     {
         ListaDeProdutos.Add(produto);
         Console.WriteLine($"\nProduto '{produto.Nome}' adicionado à loja.");
     }
 
-    // Método para listar todos os produtos
+    
     public void ListarProdutos()
     {
         Console.WriteLine("\n--- Produtos em Estoque ---");
@@ -62,21 +62,21 @@ public class Loja
         {
             foreach (var produto in ListaDeProdutos)
             {
-                // Reutiliza o método da classe Produto
+                
                 produto.ExibirInformacoes();
             }
         }
     }
 
-    // Método para vender um produto
+    
     public void VenderProduto(int id, int quantidade)
     {
-        // Procura o produto na lista pelo ID
+        
         var produtoAVender = ListaDeProdutos.Find(p => p.Id == id);
 
         if (produtoAVender != null)
         {
-            // O método RemoverEstoque da classe Produto já cuida da lógica de validação
+            
             produtoAVender.RemoverEstoque(quantidade);
         }
         else
@@ -89,10 +89,10 @@ public class Loja
 
 public class Produto
 {
-    public int Id;
-    public string? Nome;
-    public decimal Preco;
-    public int Estoque;
+    public int Id { get; set; }
+    public string? Nome { get; set; }
+    public decimal Preco { get; set; }
+    public int Estoque { get; set; }
 
     public Produto(int id, string? nome, decimal preco, int estoque)
     {

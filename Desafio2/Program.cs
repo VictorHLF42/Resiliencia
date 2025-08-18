@@ -26,10 +26,10 @@ Console.ReadKey();
 
 public class Produto
 {
-    public int Id;
-    public string? Nome;
-    public decimal Preco;
-    public int Estoque;
+    public int Id { get; set; }
+    public string? Nome { get; set; }
+    public decimal Preco { get; set; }
+    public int Estoque { get; set; }
 
     public Produto(int id, string? nome, decimal preco, int estoque)
     {

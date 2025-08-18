@@ -8,10 +8,10 @@ var produto1 = new Produto(1, "Notebook", 3500.00m, 5);
 var produto2 = new Produto(2, "Mouse", 45.00m, 30);
 var produto3 = new Produto(3, "Monitor", 850.00m, 12);
 
-// Aplicando descontos
+
 produto1.AplicarDesconto(0.1m);  // 10% de desconto
 produto2.AplicarDesconto(0.2m);  // 20% de desconto
-produto3.AplicarDesconto(0.6m);  // 60% de desconto (não será aplicado)
+produto3.AplicarDesconto(0.6m);  // 60% de desconto (não)
 
 Console.WriteLine("--- Informações dos Produtos ---");
 produto1.ExibirInformacoes();
@@ -22,10 +22,10 @@ Console.ReadKey();
 
 public class Produto
 {
-    public int Id;
-    public string? Nome;
-    public decimal Preco;
-    public int Estoque;
+    public int Id { get; set; }
+    public string? Nome { get; set; }
+    public decimal Preco { get; set; }
+    public int Estoque { get; set; }
 
     public Produto(int id, string? nome, decimal preco, int estoque)
     {
@@ -37,7 +37,7 @@ public class Produto
 
     public Produto()
     {
-       
+      
     }
 
     public void AplicarDesconto(decimal percentual)
